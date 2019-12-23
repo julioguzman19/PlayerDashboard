@@ -5,12 +5,23 @@ require("dotenv").config();
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 //User to enter city and country code api.openweathermap.org/data/2.5/weather?q={city name},{country code}
+
 class App extends React.Component {
   state = {
-    temperature: undefined,
-    city: undefined,
-    country: undefined,
-    error: undefined
+    allResults: [
+      {
+        id: 1,
+        result: undefined
+      },
+      {
+        id: 2,
+        result: undefined
+      },
+      {
+        id: 3,
+        result: undefined
+      }
+    ]
   };
   getWeather = async e => {
     e.preventDefault(); //prevents default behavior of component when we press button else refreshes entire page
@@ -23,10 +34,20 @@ class App extends React.Component {
     const data = await api_call.json();
     console.log(data.main.temp);
     this.setState({
-      temperature: data.main.temp,
-      city: data.name,
-      country: data.sys.country,
-      error: ""
+      allResults: [
+        {
+          id: 1,
+          result: data.main.temp //temperature
+        },
+        {
+          id: 2,
+          result: data.name //city
+        },
+        {
+          id: 3,
+          result: data.sys.country //country
+        }
+      ]
     });
   };
 
@@ -34,12 +55,9 @@ class App extends React.Component {
     return (
       <div>
         <Search getWeather={this.getWeather} />
-        <Box
-          temperature={this.state.temperature}
-          city={this.state.city}
-          country={this.state.country}
-          error={this.state.error}
-        />
+        {this.state.allResults.map(item => (
+          <Box key={item.id} result={item.result} />
+        ))}
         <p>Hello Weather World</p>
       </div>
     );

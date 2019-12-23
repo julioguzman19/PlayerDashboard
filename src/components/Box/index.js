@@ -14,7 +14,7 @@ const Box = props => {
           <Card.Subtitle className="mb-2 text-muted">
             Card Subtitle
           </Card.Subtitle>
-          <Card.Text>{props.temperature}</Card.Text>
+          <Card.Text>{props.result}</Card.Text>
         </Card.Body>
       </Card>
     </div>
