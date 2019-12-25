@@ -55,9 +55,11 @@ class App extends React.Component {
     return (
       <div>
         <Search getWeather={this.getWeather} />
-        {this.state.allResults.map(item => (
-          <Box key={item.id} result={item.result} />
-        ))}
+        <div style={{ display: "flex" }}>
+          {this.state.allResults.map(item => (
+            <Box key={item.id} result={item.result} />
+          ))}
+        </div>
         <p>Hello Weather World</p>
       </div>
     );

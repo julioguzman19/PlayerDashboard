@@ -8,8 +8,8 @@ import FormControl from 'react-bootstrap/FormControl' */
 const Box = props => {
   return (
     <div>
-      <Card style={{ width: "18rem" }}>
-        <Card.Body>
+      <Card className="mt-2">
+        <Card.Body className="cards">
           <Card.Title>Current Weather</Card.Title>
           <Card.Subtitle className="mb-2 text-muted">
             Card Subtitle
