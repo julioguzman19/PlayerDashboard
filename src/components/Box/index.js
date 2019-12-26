@@ -6,12 +6,9 @@ import Card from "react-bootstrap/Card";
 const Box = props => {
   return (
     <div>
-      <Card className="mt-2">
+      <Card className="mt-4">
         <Card.Body className="cards">
-          <Card.Title>Current Weather</Card.Title>
-          <Card.Subtitle className="mb-2 text-muted">
-            Card Subtitle
-          </Card.Subtitle>
+          <Card.Title>{props.description}</Card.Title>
           <Card.Text>{props.result}</Card.Text>
         </Card.Body>
       </Card>

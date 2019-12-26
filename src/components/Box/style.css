@@ -1,5 +1,6 @@
 .cards {
   background: rgb(29, 27, 65);
+  border: none;
   color: white;
   width: 18rem;
 }
