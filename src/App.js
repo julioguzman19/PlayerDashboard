@@ -1,6 +1,7 @@
 import React from "react";
 import Search from "./components/Search";
 import Box from "./components/Box";
+import "./App.css";
 require("dotenv").config();
 
 const API_KEY = process.env.REACT_APP_API_KEY;
@@ -53,9 +54,11 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <Search getWeather={this.getWeather} />
-        <div style={{ display: "flex" }}>
+      <div className="background">
+        <div>
+          <Search getWeather={this.getWeather} />
+        </div>
+        <div className="horizontal">
           {this.state.allResults.map(item => (
             <Box key={item.id} result={item.result} />
           ))}

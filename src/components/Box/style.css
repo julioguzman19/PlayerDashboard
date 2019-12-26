@@ -1,4 +1,10 @@
 .cards {
-  background: yellow;
+  background: rgb(29, 27, 65);
+  color: white;
   width: 18rem;
 }
+/* .center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} */
