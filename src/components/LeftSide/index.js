@@ -5,16 +5,19 @@ import WeatherDescription from "../WeatherDescription";
 
 function LeftSide(props) {
   return (
-    <div className="verticalArea">
-      <CurrentTemp
-        description={props.currentWeatherDescription}
-        result={props.currentWeather}
-      />
-
-      <WeatherDescription
-        description={props.weahterDescription}
-        result={props.weatherDescriptionResult}
-      />
+    <div id="leftArea">
+      <span>
+        <CurrentTemp
+          description={props.currentWeatherDescription}
+          result={props.currentWeatherResult}
+        />
+      </span>
+      <span id="lefSidetWeatherDescription">
+        <WeatherDescription
+          description={props.weatherDescription}
+          result={props.weatherDescriptionResult}
+        />
+      </span>
     </div>
   );
 }

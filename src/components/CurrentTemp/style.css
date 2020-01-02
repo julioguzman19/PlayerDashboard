@@ -1,1 +1,6 @@
-
+#currentTempCard {
+  background: yellowgreen;
+  border: none;
+  color: white;
+  width: 16rem;
+}

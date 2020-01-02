@@ -1,9 +1,14 @@
-.verticalArea {
-  background-color: yellow;
+#leftArea {
+  background-color: #181745;
   display: flex;
   float: left;
   height: 100vh; /* 100% of viewport height */
   justify-content: center; /* centers content */
   width: 20%;
   background-size: cover;
+}
+
+#leftSideWeatherDescription {
+  position: absolute;
+  background-color: red;
 }

@@ -1,4 +1,6 @@
 import React from "react";
+import LeftSide from "./components/LeftSide";
+import RightSide from "./components/RightSide";
 import Search from "./components/Search";
 import Box from "./components/Box";
 import "./App.css";
@@ -12,14 +14,22 @@ class App extends React.Component {
     allResults: [
       {
         id: 1,
+        description: "Current Weather",
         result: undefined
       },
       {
         id: 2,
+        description: "Weather Description",
         result: undefined
       },
       {
         id: 3,
+        description: "High",
+        result: undefined
+      },
+      {
+        id: 4,
+        description: "Low",
         result: undefined
       }
     ]
@@ -33,20 +43,34 @@ class App extends React.Component {
       `http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${API_KEY}&units=imperial`
     );
     const data = await api_call.json();
-    console.log(data.main.temp);
+    console.log(data);
+
     this.setState({
       allResults: [
         {
           id: 1,
-          result: data.main.temp //temperature
+          description: "Current Weather",
+          result: Math.round(data.main.temp) + "°F" //temperature
         },
         {
           id: 2,
-          result: data.name //city
+          description: "Weather Description",
+          result: data.weather[0].description //Weather Description
         },
         {
           id: 3,
-          result: data.sys.country //country
+          description: "High    Low",
+          result:
+            Math.round(data.main.temp_max) +
+            "°F" +
+            "     " +
+            Math.round(data.main.temp_min) +
+            "°F" //max temp
+        },
+        {
+          id: 4,
+          description: "Low",
+          result: Math.round(data.main.temp_min) + "°F" //min temp
         }
       ]
     });
@@ -54,16 +78,26 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="background">
+      <div /* className="background" */>
+        <LeftSide
+          currentWeatherDescription={this.state.allResults[0].description}
+          currentWeatherResult={this.state.allResults[0].result}
+          weatherDescription={this.state.allResults[1].description}
+          weatherDescriptionResult={this.state.allResults[1].result}
+        />
+        {/* <RightSide /> */}
         <div>
           <Search getWeather={this.getWeather} />
         </div>
-        <div className="horizontal">
+        {/*    <div className="horizontal">
           {this.state.allResults.map(item => (
-            <Box key={item.id} result={item.result} />
+            <Box
+              key={item.id}
+              result={item.result}
+              description={item.description}
+            />
           ))}
-        </div>
-        <p>Hello Weather World</p>
+        </div> */}
       </div>
     );
   }

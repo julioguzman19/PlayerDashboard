@@ -1,5 +1,5 @@
-.area {
-  background-color: whitesmoke;
+#rightArea {
+  background-color: red;
   height: 35vh;
   width: 80%;
   float: right; /*making RightSide component be 80% of right side since LeftSide is 20%*/

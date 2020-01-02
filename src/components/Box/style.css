@@ -1,7 +1,7 @@
-.cards {
+#cards {
   background: rgb(29, 27, 65);
   border: none;
-  color: white;
+  color: blue;
   width: 18rem;
 }
 /* .center {

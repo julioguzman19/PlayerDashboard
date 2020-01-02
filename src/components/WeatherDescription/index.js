@@ -5,7 +5,7 @@ import Card from "react-bootstrap/Card";
 
 function WeatherDescription(props) {
   return (
-    <Card className="mt-4">
+    <Card className="mt-4" id="weatherDescriptionCard">
       <Card.Body>
         <Card.Title>{props.description}</Card.Title>
         <Card.Text>{props.result}</Card.Text>

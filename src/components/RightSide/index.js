@@ -2,7 +2,7 @@ import React from "react";
 import "./style.css";
 
 function RightSide() {
-  return <div className="area"></div>;
+  return <div id="rightArea"></div>;
 }
 
 export default RightSide;
