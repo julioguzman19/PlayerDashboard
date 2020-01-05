@@ -43,7 +43,7 @@ class App extends React.Component {
       `http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${API_KEY}&units=imperial`
     );
     const data = await api_call.json();
-    console.log(data);
+    console.log(data.main.temp_max);
 
     this.setState({
       allResults: [
@@ -59,13 +59,8 @@ class App extends React.Component {
         },
         {
           id: 3,
-          description: "High    Low",
-          result:
-            Math.round(data.main.temp_max) +
-            "°F" +
-            "     " +
-            Math.round(data.main.temp_min) +
-            "°F" //max temp
+          description: "High",
+          result: Math.round(data.main.temp_max) + "°F" //max temp
         },
         {
           id: 4,
@@ -78,12 +73,14 @@ class App extends React.Component {
 
   render() {
     return (
-      <div /* className="background" */>
+      <div>
         <LeftSide
           currentWeatherDescription={this.state.allResults[0].description}
           currentWeatherResult={this.state.allResults[0].result}
           weatherDescription={this.state.allResults[1].description}
           weatherDescriptionResult={this.state.allResults[1].result}
+          highTempDescription={this.state.allResults[2].description}
+          highTempResult={this.state.allResults[2].result}
         />
         {/* <RightSide /> */}
         <div>

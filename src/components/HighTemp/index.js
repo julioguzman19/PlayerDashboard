@@ -1,11 +1,10 @@
 import React from "react";
 import "./style.css";
-import "bootstrap/dist/css/bootstrap.min.css";
 import Card from "react-bootstrap/Card";
 
-function WeatherDescription(props) {
+function HighTemp(props) {
   return (
-    <Card className="mt-2" id="weatherDescriptionCard">
+    <Card id="highTempCard">
       <Card.Body>
         <Card.Title>{props.description}</Card.Title>
         <Card.Text>{props.result}</Card.Text>
@@ -14,4 +13,4 @@ function WeatherDescription(props) {
   );
 }
 
-export default WeatherDescription;
+export default HighTemp;

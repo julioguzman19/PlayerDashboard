@@ -2,22 +2,25 @@ import React from "react";
 import "./style.css";
 import CurrentTemp from "../CurrentTemp";
 import WeatherDescription from "../WeatherDescription";
+import HighTemp from "../HighTemp";
 
 function LeftSide(props) {
   return (
     <div id="leftArea">
-      <span>
-        <CurrentTemp
-          description={props.currentWeatherDescription}
-          result={props.currentWeatherResult}
-        />
-      </span>
-      <span id="lefSidetWeatherDescription">
-        <WeatherDescription
-          description={props.weatherDescription}
-          result={props.weatherDescriptionResult}
-        />
-      </span>
+      <CurrentTemp
+        description={props.currentWeatherDescription}
+        result={props.currentWeatherResult}
+      />
+
+      <WeatherDescription
+        description={props.weatherDescription}
+        result={props.weatherDescriptionResult}
+      />
+
+      <HighTemp
+        description={props.highTempDescription}
+        result={props.highTempDescriptionResult}
+      />
     </div>
   );
 }
