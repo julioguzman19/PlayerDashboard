@@ -75,6 +75,7 @@ class App extends React.Component {
     return (
       <div>
         <LeftSide
+          getWeather={this.getWeather}
           currentWeatherDescription={this.state.allResults[0].description}
           currentWeatherResult={this.state.allResults[0].result}
           weatherDescription={this.state.allResults[1].description}
@@ -85,9 +86,9 @@ class App extends React.Component {
           lowTempResult={this.state.allResults[3].result}
         />
         {/* <RightSide /> */}
-        <div>
+        {/* <div>
           <Search getWeather={this.getWeather} />
-        </div>
+        </div> */}
         {/*    <div className="horizontal">
           {this.state.allResults.map(item => (
             <Box

@@ -1,9 +1,19 @@
-.center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.corners {
+#cityInput {
   border-radius: 10px;
   outline: none;
+  margin-top: 40px;
+  text-align: center;
+}
+#countryInput {
+  border-radius: 10px;
+  outline: none;
+  margin-top: 20px;
+  text-align: center;
+}
+#getWeatherButton {
+  border-radius: 10px;
+  outline: none;
+  margin: 20px auto;
+  text-align: center;
+  display: block;
 }

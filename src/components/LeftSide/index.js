@@ -4,17 +4,18 @@ import CurrentTemp from "../CurrentTemp";
 import WeatherDescription from "../WeatherDescription";
 import HighTemp from "../HighTemp";
 import LowTemp from "../LowTemp";
+import Search from "..//Search";
 
 function LeftSide(props) {
   return (
     <div id="leftArea">
+      <Search getWeather={props.getWeather} />
       <CurrentTemp
         description={props.currentWeatherDescription}
         result={props.currentWeatherResult}
       />
 
       <WeatherDescription
-        id="leftSideWeatherDescription"
         description={props.weatherDescription}
         result={props.weatherDescriptionResult}
       />
