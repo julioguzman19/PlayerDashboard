@@ -14,12 +14,12 @@ class App extends React.Component {
     allResults: [
       {
         id: 1,
-        description: "Current Weather",
+        description: "Weather",
         result: undefined
       },
       {
         id: 2,
-        description: "Weather Description",
+        description: "Description",
         result: undefined
       },
       {
@@ -49,13 +49,13 @@ class App extends React.Component {
       allResults: [
         {
           id: 1,
-          description: "Current Weather",
+          description: "Weather",
           result: Math.round(data.main.temp) + "°F" //temperature
         },
         {
           id: 2,
-          description: "Weather Description",
-          result: data.weather[0].description //Weather Description
+          description: "Description",
+          result: data.weather[0].description.toUpperCase() //Weather Description
         },
         {
           id: 3,
@@ -81,6 +81,8 @@ class App extends React.Component {
           weatherDescriptionResult={this.state.allResults[1].result}
           highTempDescription={this.state.allResults[2].description}
           highTempResult={this.state.allResults[2].result}
+          lowTempDescription={this.state.allResults[3].description}
+          lowTempResult={this.state.allResults[3].result}
         />
         {/* <RightSide /> */}
         <div>
