@@ -8,6 +8,8 @@ require("dotenv").config();
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 //User to enter city and country code api.openweathermap.org/data/2.5/weather?q={city name},{country code}
+const API_KEY2 = process.env.REACT_APP_API_KEY2;
+//"http://dataservice.accuweather.com/locations/v1/cities/{country}/search?apikey={apikey}&q={city}"
 
 class App extends React.Component {
   state = {
@@ -34,21 +36,24 @@ class App extends React.Component {
       }
     ]
   };
+
   getWeather = async e => {
     e.preventDefault(); //prevents default behavior of component when we press button else refreshes entire page
     const city = e.target.elements.city.value;
     const country = e.target.elements.country.value;
+
     //imperial units = Farenheit where metric = Celcius
     const api_call = await fetch(
       `http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${API_KEY}&units=imperial`
     );
-    const api_call2 = await fetch(
-      `http://pro.openweathermap.org/data/2.5/forecast/hourly?q=${city}&appid=${API_KEY}&units=imperial`
-    );
-
     const data = await api_call.json();
+
+    //API fetching the code for city to use when pulling hourly data
+    const api_call2 = await fetch(
+      `http://dataservice.accuweather.com/locations/v1/${country}/search?apikey=${API_KEY2}&q=${city}`
+    );
     const data2 = await api_call2.json();
-    console.log(data2);
+    const cityKey = data2[0].Key;
 
     this.setState({
       allResults: [
