@@ -46,14 +46,24 @@ class App extends React.Component {
     const api_call = await fetch(
       `http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${API_KEY}&units=imperial`
     );
+    //Declaing API data object
     const data = await api_call.json();
 
     //API fetching the code for city to use when pulling hourly data
     const api_call2 = await fetch(
       `http://dataservice.accuweather.com/locations/v1/${country}/search?apikey=${API_KEY2}&q=${city}`
     );
+    //Declaing API data object
     const data2 = await api_call2.json();
     const cityKey = data2[0].Key;
+    console.log(cityKey);
+
+    const api_call3 = await fetch(
+      `http://dataservice.accuweather.com/forecasts/v1/hourly/12hour/${cityKey}?apikey=${API_KEY2}`
+    );
+    //Declaing API data object
+    const data3 = await api_call3.json();
+    console.log(data3);
 
     this.setState({
       allResults: [
