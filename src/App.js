@@ -105,7 +105,7 @@ class App extends React.Component {
           lowTempDescription={this.state.allResults[3].description}
           lowTempResult={this.state.allResults[3].result}
         />
-        {/* <RightSide /> */}
+        {<RightSide />}
         {/* <div>
           <Search getWeather={this.getWeather} />
         </div> */}

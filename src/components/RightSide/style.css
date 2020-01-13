@@ -1,5 +1,5 @@
 #rightArea {
-  background-color: red;
+  background-color: yellow;
   height: 35vh;
   width: 80%;
   float: right; /*making RightSide component be 80% of right side since LeftSide is 20%*/

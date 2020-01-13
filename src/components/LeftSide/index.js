@@ -33,5 +33,4 @@ function LeftSide(props) {
     </div>
   );
 }
-
 export default LeftSide;
