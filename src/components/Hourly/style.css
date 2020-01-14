@@ -1,0 +1,11 @@
+#hourlyChart {
+  width: 80%;
+  height: 33vh;
+  background: red;
+  text-align: center;
+  /* centering it */
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2%;
+}

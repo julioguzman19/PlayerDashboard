@@ -1,8 +1,6 @@
 import React from "react";
 import LeftSide from "./components/LeftSide";
 import RightSide from "./components/RightSide";
-import Search from "./components/Search";
-import Box from "./components/Box";
 import "./App.css";
 require("dotenv").config();
 

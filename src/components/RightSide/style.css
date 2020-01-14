@@ -1,6 +1,6 @@
 #rightArea {
-  background-color: yellow;
-  height: 35vh;
-  width: 80%;
+  background-color: #216e93;
+  height: 100vh;
+  width: 86%;
   float: right; /*making RightSide component be 80% of right side since LeftSide is 20%*/
 }
