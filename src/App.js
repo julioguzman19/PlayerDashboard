@@ -1,6 +1,7 @@
 import React from "react";
 import LeftSide from "./components/LeftSide";
 import RightSide from "./components/RightSide";
+import Chart from "./components/Chart";
 import "./App.css";
 require("dotenv").config();
 
@@ -89,6 +90,37 @@ class App extends React.Component {
     });
   };
 
+  getChartData() {
+    // Ajax calls here
+    this.setState({
+      chartData: {
+        labels: [
+          "Boston",
+          "Worcester",
+          "Springfield",
+          "Lowell",
+          "Cambridge",
+          "New Bedford"
+        ],
+        datasets: [
+          {
+            label: "Population",
+            data: [617594, 181045, 153060, 106519, 105162, 95072],
+            backgroundColor: [
+              "rgba(255, 99, 132, 0.6)",
+              "rgba(54, 162, 235, 0.6)",
+              "rgba(255, 206, 86, 0.6)",
+              "rgba(75, 192, 192, 0.6)",
+              "rgba(153, 102, 255, 0.6)",
+              "rgba(255, 159, 64, 0.6)",
+              "rgba(255, 99, 132, 0.6)"
+            ]
+          }
+        ]
+      }
+    });
+  }
+
   render() {
     return (
       <div>
@@ -103,19 +135,12 @@ class App extends React.Component {
           lowTempDescription={this.state.allResults[3].description}
           lowTempResult={this.state.allResults[3].result}
         />
-        {<RightSide />}
-        {/* <div>
-          <Search getWeather={this.getWeather} />
-        </div> */}
-        {/*    <div className="horizontal">
-          {this.state.allResults.map(item => (
-            <Box
-              key={item.id}
-              result={item.result}
-              description={item.description}
-            />
-          ))}
-        </div> */}
+        <RightSide />
+        <Chart
+          chartData={this.state.chartData}
+          location="Massachusetts"
+          legendPosition="bottom"
+        />
       </div>
     );
   }
