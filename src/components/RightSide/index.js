@@ -1,13 +1,15 @@
 import React from "react";
 import "./style.css";
 import Hourly from "..//Hourly";
-import Chart from "..//Chart";
 
-function RightSide() {
+function RightSide(props) {
   return (
     <div id="rightArea">
-      <Hourly />
-      <Chart />
+      <Hourly
+        chartData={props.chartData}
+        datasets={props.datasets}
+        location={props.location}
+      />
     </div>
   );
 }

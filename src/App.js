@@ -105,7 +105,7 @@ class App extends React.Component {
         datasets: [
           {
             label: "Population",
-            data: [617594, 181045, 153060, 106519, 105162, 95072],
+            data: [0.3, 0.7, 0.9, 1],
             backgroundColor: [
               "rgba(255, 99, 132, 0.6)",
               "rgba(54, 162, 235, 0.6)",
@@ -135,11 +135,10 @@ class App extends React.Component {
           lowTempDescription={this.state.allResults[3].description}
           lowTempResult={this.state.allResults[3].result}
         />
-        <RightSide />
-        <Chart
+        <RightSide
           chartData={this.state.chartData}
+          datasets={this.state.datasets}
           location="Massachusetts"
-          legendPosition="bottom"
         />
       </div>
     );

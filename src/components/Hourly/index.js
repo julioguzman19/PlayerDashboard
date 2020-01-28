@@ -5,9 +5,11 @@ import Chart from "..//Chart";
 function Hourly(props) {
   return (
     <div>
-      <canvas id="hourlyChart">
-        <Chart />
-      </canvas>
+      <Chart
+        chartData={props.chartData}
+        datasets={props.datasets}
+        location={props.location}
+      />
     </div>
   );
 }

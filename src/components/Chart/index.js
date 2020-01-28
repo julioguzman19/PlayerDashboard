@@ -20,16 +20,38 @@ class Chart extends Component {
     return (
       <div className="chart">
         <Line
-          data={this.state.chartData}
           options={{
             title: {
               display: this.props.displayTitle,
-              text: "Largest Cities In " + this.props.location,
-              fontSize: 25
+              text: "Hourly Weather in " + this.props.location,
+              fontSize: 25,
+              fontColor: "white" //Chart title colors
             },
             legend: {
               display: this.props.displayLegend,
               position: this.props.legendPosition
+            },
+            scales: {
+              yAxes: [
+                {
+                  gridLines: {
+                    color: "white" // makes grid lines from y axis white
+                  },
+                  ticks: {
+                    fontColor: "white" // y-axis labels colors
+                  }
+                }
+              ],
+              xAxes: [
+                {
+                  gridLines: {
+                    color: "white" // makes grid lines from x axis white
+                  },
+                  ticks: {
+                    fontColor: "white" // x-axis labels colors
+                  }
+                }
+              ]
             }
           }}
         />
