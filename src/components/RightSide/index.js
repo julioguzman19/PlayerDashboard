@@ -5,11 +5,7 @@ import Hourly from "..//Hourly";
 function RightSide(props) {
   return (
     <div id="rightArea">
-      <Hourly
-        chartData={props.chartData}
-        datasets={props.datasets}
-        location={props.location}
-      />
+      <Hourly chartData={props.chartData} />
     </div>
   );
 }

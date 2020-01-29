@@ -5,11 +5,7 @@ import Chart from "..//Chart";
 function Hourly(props) {
   return (
     <div>
-      <Chart
-        chartData={props.chartData}
-        datasets={props.datasets}
-        location={props.location}
-      />
+      <Chart chartData={props.chartData} />
     </div>
   );
 }

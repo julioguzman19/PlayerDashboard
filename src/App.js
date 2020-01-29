@@ -1,7 +1,6 @@
 import React from "react";
 import LeftSide from "./components/LeftSide";
 import RightSide from "./components/RightSide";
-import Chart from "./components/Chart";
 import "./App.css";
 require("dotenv").config();
 
@@ -14,24 +13,36 @@ class App extends React.Component {
   state = {
     allResults: [
       {
-        id: 1,
+        id: 0,
         description: "Weather",
         result: undefined
       },
       {
-        id: 2,
+        id: 1,
         description: "Description",
         result: undefined
       },
       {
-        id: 3,
+        id: 2,
         description: "High",
         result: undefined
       },
       {
-        id: 4,
+        id: 3,
         description: "Low",
         result: undefined
+      },
+      {
+        id: 4,
+        chartData: {
+          labels: ["Boston", "Worcester"],
+          datasets: [
+            {
+              label: "Population",
+              data: [10, 20, 30, 40]
+            }
+          ]
+        }
       }
     ]
   };
@@ -43,14 +54,24 @@ class App extends React.Component {
 
     //imperial units = Farenheit where metric = Celcius
     const api_call = await fetch(
-      `http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${API_KEY}&units=imperial`
+      `http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${API_KEY}&units=imperial` /* ,
+      {
+        mode: "no-cors",
+        method: "GET",
+        headers: { "Content-Type": "application/json" }
+      } */
     );
     //Declaing API data object
     const data = await api_call.json();
 
     //API fetching the code for city to use when pulling hourly data
     const api_call2 = await fetch(
-      `http://dataservice.accuweather.com/locations/v1/${country}/search?apikey=${API_KEY2}&q=${city}`
+      `http://dataservice.accuweather.com/locations/v1/${country}/search?apikey=${API_KEY2}&q=${city}` /* ,
+      {
+        mode: "no-cors",
+        method: "GET",
+        headers: { "Content-Type": "application/json" }
+      } */
     );
     //Declaing API data object
     const data2 = await api_call2.json();
@@ -58,68 +79,57 @@ class App extends React.Component {
     console.log(cityKey);
 
     const api_call3 = await fetch(
-      `http://dataservice.accuweather.com/forecasts/v1/hourly/12hour/${cityKey}?apikey=${API_KEY2}`
+      `http://dataservice.accuweather.com/forecasts/v1/hourly/12hour/${cityKey}?apikey=${API_KEY2}` /* ,
+      {
+        mode: "no-cors",
+        method: "GET",
+        headers: { "Content-Type": "application/json" }
+      } */
     );
     //Declaing API data object
     const data3 = await api_call3.json();
+
     console.log(data3);
 
     this.setState({
       allResults: [
         {
-          id: 1,
+          id: 0,
           description: "Weather",
           result: Math.round(data.main.temp) + "°F" //temperature
         },
         {
-          id: 2,
+          id: 1,
           description: "Description",
           result: data.weather[0].description.toUpperCase() //Weather Description
         },
         {
-          id: 3,
+          id: 2,
           description: "High",
           result: Math.round(data.main.temp_max) + "°F" //max temp
         },
         {
-          id: 4,
+          id: 3,
           description: "Low",
           result: Math.round(data.main.temp_min) + "°F" //min temp
+        },
+        {
+          id: 4,
+          chartData: {
+            labels: ["Boston", "Worcester"],
+            datasets: [
+              {
+                label: "Population",
+                data: [10, 20, 30, 40]
+              }
+            ]
+          }
         }
       ]
     });
-  };
 
-  getChartData() {
-    // Ajax calls here
-    this.setState({
-      chartData: {
-        labels: [
-          "Boston",
-          "Worcester",
-          "Springfield",
-          "Lowell",
-          "Cambridge",
-          "New Bedford"
-        ],
-        datasets: [
-          {
-            label: "Population",
-            data: [0.3, 0.7, 0.9, 1],
-            backgroundColor: [
-              "rgba(255, 99, 132, 0.6)",
-              "rgba(54, 162, 235, 0.6)",
-              "rgba(255, 206, 86, 0.6)",
-              "rgba(75, 192, 192, 0.6)",
-              "rgba(153, 102, 255, 0.6)",
-              "rgba(255, 159, 64, 0.6)",
-              "rgba(255, 99, 132, 0.6)"
-            ]
-          }
-        ]
-      }
-    });
-  }
+    console.log(this.state);
+  };
 
   render() {
     return (
@@ -135,11 +145,7 @@ class App extends React.Component {
           lowTempDescription={this.state.allResults[3].description}
           lowTempResult={this.state.allResults[3].result}
         />
-        <RightSide
-          chartData={this.state.chartData}
-          datasets={this.state.datasets}
-          location="Massachusetts"
-        />
+        <RightSide chartData={this.state.allResults[4].chartData} />
       </div>
     );
   }
