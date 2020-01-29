@@ -7,6 +7,6 @@
   background-size: cover;
 }
 
-#leftSideHighLowFloat {
+#stickComponentToLeftSide {
   display: flex;
 }

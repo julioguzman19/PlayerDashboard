@@ -70,7 +70,7 @@ class App extends React.Component {
     });
     //Declaring API data object
     const data = await api_call.json();
-    console.log(data);
+    /* console.log(data); */
     /*---------------------------------API Call 2---------------------------------*/
 
     const url2 = `http://dataservice.accuweather.com/locations/v1/${country}/search?apikey=${API_KEY2}&q=${city}`;

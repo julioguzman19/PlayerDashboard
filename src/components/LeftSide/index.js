@@ -10,16 +10,19 @@ function LeftSide(props) {
   return (
     <div id="leftArea">
       <Search getWeather={props.getWeather} />
-      <CurrentTemp
-        description={props.currentWeatherDescription}
-        result={props.currentWeatherResult}
-      />
-
-      <WeatherDescription
-        description={props.weatherDescription}
-        result={props.weatherDescriptionResult}
-      />
-      <span id="leftSideHighLowFloat">
+      <span id="stickComponentToLeftSide">
+        <CurrentTemp
+          description={props.currentWeatherDescription}
+          result={props.currentWeatherResult}
+        />
+      </span>
+      <span id="stickComponentToLeftSide">
+        <WeatherDescription
+          description={props.weatherDescription}
+          result={props.weatherDescriptionResult}
+        />
+      </span>
+      <span id="stickComponentToLeftSide">
         <HighTemp
           description={props.highTempDescription}
           result={props.highTempResult}
