@@ -5,3 +5,10 @@
   width: 86%;
   float: right; /*making RightSide component be 80% of right side since LeftSide is 20%*/
 }
+
+#chartBackground {
+  background-color: #181745;
+  border-radius: 10px;
+  margin: 10px auto;
+  width: 840px;
+}

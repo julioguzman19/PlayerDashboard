@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Line } from "react-chartjs-2";
+import "./style.css";
 
 class Chart extends Component {
   static defaultProps = {
@@ -10,16 +11,16 @@ class Chart extends Component {
 
   render() {
     return (
-      <div className="chart">
+      <div className="chart" id="chartBackground">
         <Line
           data={this.props.chartData}
-          width={400}
+          width={600}
           height={350}
           options={{
             maintainAspectRatio: false,
             title: {
               display: this.props.displayTitle,
-              text: this.props.city + " hourly weather",
+              text: this.props.city.toUpperCase() + " HOURLY WEATHER",
               fontSize: 25,
               fontColor: "white" //Chart title colors
             },

@@ -36,7 +36,7 @@ class App extends React.Component {
         id: 4,
         chartData: {
           labels: [
-            "example",
+            "11:00",
             "12:00",
             "13:00",
             "14:00",
@@ -49,13 +49,13 @@ class App extends React.Component {
           datasets: [
             {
               label: "Temp in F \u00B0",
-              data: [15, 10, 14, 20, 22, 18, 16, 16, 14],
+              data: [8, 10, 14, 15, 16, 18, 20, 22, 23],
               backgroundColor: "rgb(218, 217, 217)"
             }
           ]
         }
       },
-      { id: 5, city: "Enter City for" }
+      { id: 5, city: "ENTER CITY FOR" }
     ]
   };
 
@@ -82,7 +82,7 @@ class App extends React.Component {
     });
     //Declaring API data object
     const data = await api_call.json();
-    /* console.log(data); */
+
     /*---------------------------------API Call 2---------------------------------*/
 
     const url2 = `http://dataservice.accuweather.com/locations/v1/${country}/search?apikey=${API_KEY2}&q=${city}`;
@@ -100,10 +100,9 @@ class App extends React.Component {
     });
     //Declaing API data object
     const data2 = await api_call2.json();
-    console.log(data2);
+
     //Getting City Key for hourly weather
     const cityKey = data2[0].Key;
-
     /*---------------------------------API Call 3---------------------------------*/
     const url3 = `http://dataservice.accuweather.com/forecasts/v1/hourly/12hour/${cityKey}?apikey=${API_KEY2}`;
     const api_call3 = await fetch(proxyurl + url3, {
@@ -120,7 +119,6 @@ class App extends React.Component {
     //Declaing API data object
     const data3 = await api_call3.json();
 
-    console.log(data3);
     //array with hours and temps for chart
     let hourArray = [];
     let tempArray = [];
@@ -167,8 +165,6 @@ class App extends React.Component {
         { id: 5, city: city }
       ]
     });
-
-    console.log(this.state);
   };
 
   render() {

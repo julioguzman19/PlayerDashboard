@@ -1,6 +1,6 @@
 #weatherDescriptionCard {
   background: white;
-  border: none;
+  border-radius: 10px;
   color: #216e93;
   height: 3rem;
   margin-top: 50px;
