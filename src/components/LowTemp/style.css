@@ -8,3 +8,7 @@
   text-align: center;
   width: 5.5rem;
 }
+
+#lowTempResultFont {
+  color: rgb(218, 217, 217);
+}

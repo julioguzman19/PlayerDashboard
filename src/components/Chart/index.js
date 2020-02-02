@@ -29,7 +29,7 @@ class Chart extends Component {
     return (
       <div className="chart">
         <Line
-          /* data={state} */
+          data={this.props.chartData}
           width={400}
           height={350}
           options={{
@@ -42,7 +42,10 @@ class Chart extends Component {
             },
             legend: {
               display: this.props.displayLegend,
-              position: this.props.legendPosition
+              position: this.props.legendPosition,
+              labels: {
+                fontColor: "white" //font color on temp in F label
+              }
             },
             scales: {
               yAxes: [
@@ -52,9 +55,8 @@ class Chart extends Component {
                   },
                   ticks: {
                     fontColor: "white", // y-axis labels colors
-                    suggestedMin: 50, //yaxis scale min
-                    suggestedMax: 100,
-                    stepSize: 10
+
+                    stepSize: 2
                   }
                 }
               ],

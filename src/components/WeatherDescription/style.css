@@ -7,3 +7,7 @@
   text-align: center;
   width: 11.5rem;
 }
+
+#weatherDescriptionResultFont {
+  color: rgb(218, 217, 217);
+}

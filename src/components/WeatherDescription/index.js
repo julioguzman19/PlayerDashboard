@@ -7,7 +7,7 @@ function WeatherDescription(props) {
     <Card id="weatherDescriptionCard">
       <Card.Body>
         <Card.Title>{props.description}</Card.Title>
-        <Card.Text>{props.result}</Card.Text>
+        <Card.Text id="weatherDescriptionResultFont">{props.result}</Card.Text>
       </Card.Body>
     </Card>
   );

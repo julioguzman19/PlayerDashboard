@@ -35,11 +35,23 @@ class App extends React.Component {
       {
         id: 4,
         chartData: {
-          labels: ["Boston", "Worcester"],
+          labels: [
+            "example",
+            "12:00",
+            "13:00",
+            "14:00",
+            "15:00",
+            "16:00",
+
+            "17:00",
+            "18:00",
+            "19:00"
+          ],
           datasets: [
             {
-              label: "Population",
-              data: [10, 20, 30, 40]
+              label: "Temp in F \u00B0",
+              data: [10, 10, 14, 20, 22, 18, 16, 16, 14],
+              backgroundColor: "rgb(218, 217, 217)"
             }
           ]
         }
@@ -109,6 +121,13 @@ class App extends React.Component {
     const data3 = await api_call3.json();
 
     console.log(data3);
+    //array with hours and temps for chart
+    let hourArray = [];
+    let tempArray = [];
+    for (let i = 0; i < 10; i++) {
+      hourArray.push(data3[i].DateTime.slice(11, 16));
+      tempArray.push(data3[i].Temperature.Value);
+    }
 
     /*---------------------------------Setting State to grab data needed---------------------------------*/
     this.setState({
@@ -136,11 +155,11 @@ class App extends React.Component {
         {
           id: 4,
           chartData: {
-            labels: ["Boston", "Worcester"],
+            labels: hourArray,
             datasets: [
               {
-                label: "Population",
-                data: [10, 20, 30, 40]
+                label: "Temp in F \u00B0",
+                data: tempArray
               }
             ]
           }

@@ -7,7 +7,7 @@ function HighTemp(props) {
     <Card id="highTempCard">
       <Card.Body>
         <Card.Title>{props.description}</Card.Title>
-        <Card.Text>{props.result}</Card.Text>
+        <Card.Text id="highTempResultFont">{props.result}</Card.Text>
       </Card.Body>
     </Card>
   );

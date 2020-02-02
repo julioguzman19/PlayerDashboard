@@ -7,7 +7,7 @@ function CurrentTemp(props) {
     <Card id="currentTempCard">
       <Card.Body>
         <Card.Title>{props.description}</Card.Title>
-        <Card.Text>{props.result}</Card.Text>
+        <Card.Text id="tempResultFont">{props.result}</Card.Text>
       </Card.Body>
     </Card>
   );

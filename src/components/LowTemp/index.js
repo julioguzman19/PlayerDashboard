@@ -7,7 +7,7 @@ function LowTemp(props) {
     <Card id="lowTempCard">
       <Card.Body>
         <Card.Title>{props.description}</Card.Title>
-        <Card.Text>{props.result}</Card.Text>
+        <Card.Text id="lowTempResultFont">{props.result}</Card.Text>
       </Card.Body>
     </Card>
   );
