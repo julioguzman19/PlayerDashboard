@@ -5,7 +5,7 @@ import Chart from "..//Chart";
 function Hourly(props) {
   return (
     <div>
-      <Chart chartData={props.chartData} />
+      <Chart chartData={props.chartData} city={props.city} />
     </div>
   );
 }

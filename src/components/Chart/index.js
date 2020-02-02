@@ -1,31 +1,14 @@
 import React, { Component } from "react";
 import { Line } from "react-chartjs-2";
-/* const state = {
-  labels: ["January", "February", "March", "April", "May"],
-  datasets: [
-    {
-      label: "Rainfall",
-      backgroundColor: "rgba(75,192,192,1)",
-      borderColor: "rgba(0,0,0,1)",
-      borderWidth: 2,
-      data: [65, 59, 80, 81, 56]
-    }
-  ]
-}; */
+
 class Chart extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      chartData: props.chartData
-    };
-  }
   static defaultProps = {
     displayTitle: true,
     displayLegend: true,
     legendPosition: "right"
   };
 
-  render(props) {
+  render() {
     return (
       <div className="chart">
         <Line
@@ -36,7 +19,7 @@ class Chart extends Component {
             maintainAspectRatio: false,
             title: {
               display: this.props.displayTitle,
-              text: "Hourly Weather",
+              text: this.props.city + " hourly weather",
               fontSize: 25,
               fontColor: "white" //Chart title colors
             },

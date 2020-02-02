@@ -42,7 +42,6 @@ class App extends React.Component {
             "14:00",
             "15:00",
             "16:00",
-
             "17:00",
             "18:00",
             "19:00"
@@ -50,12 +49,13 @@ class App extends React.Component {
           datasets: [
             {
               label: "Temp in F \u00B0",
-              data: [10, 10, 14, 20, 22, 18, 16, 16, 14],
+              data: [15, 10, 14, 20, 22, 18, 16, 16, 14],
               backgroundColor: "rgb(218, 217, 217)"
             }
           ]
         }
-      }
+      },
+      { id: 5, city: "Enter City for" }
     ]
   };
 
@@ -163,7 +163,8 @@ class App extends React.Component {
               }
             ]
           }
-        }
+        },
+        { id: 5, city: city }
       ]
     });
 
@@ -184,7 +185,10 @@ class App extends React.Component {
           lowTempDescription={this.state.allResults[3].description}
           lowTempResult={this.state.allResults[3].result}
         />
-        <RightSide chartData={this.state.allResults[4].chartData} />
+        <RightSide
+          chartData={this.state.allResults[4].chartData}
+          city={this.state.allResults[5].city}
+        />
       </div>
     );
   }
