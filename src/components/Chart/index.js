@@ -16,7 +16,9 @@ class Chart extends Component {
           data={this.props.chartData}
           width={600}
           height={350}
+          //Customize chart options
           options={{
+            responsive: true,
             maintainAspectRatio: false,
             title: {
               display: this.props.displayTitle,
@@ -54,6 +56,9 @@ class Chart extends Component {
                   }
                 }
               ]
+            },
+            tooltips: {
+              mode: "y"
             }
           }}
         />

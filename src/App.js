@@ -50,7 +50,8 @@ class App extends React.Component {
             {
               label: "Temp in F \u00B0",
               data: [8, 10, 14, 15, 16, 18, 20, 22, 23],
-              backgroundColor: "rgb(218, 217, 217)"
+              backgroundColor: "rgb(218, 217, 217)",
+              fill: "none"
             }
           ]
         }
